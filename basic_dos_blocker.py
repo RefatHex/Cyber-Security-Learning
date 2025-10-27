@@ -24,8 +24,8 @@ def packet_callback(packet):
                 os.system(f"iptables -A INPUT -s {ip} -j DROP")
                 blocked_ips.add(ip)
                 
-                packet_count.clear()
-                start_time[0]=current_time
+        packet_count[ip] = 0
+        start_time[0]=current_time
                 
 if __name__ == "__main__":
     if os.geteuid() != 0:
